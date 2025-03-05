@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AOS Test</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <style>
+        body {
+            height: 2000px;
+            background-color: black;
+            color: white;
+        }
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" data-aos="fade-down"></div>
+
+    <div data-aos="flip-left">Flips Left</div>
+    <div data-aos="zoom-in">Zoom In</div>
+    <!-- <div data-aos="slide-right">Slide Right</div>
+    <div data-aos="fade-up" data-aos-duration="2000">Slow Fade Up</div>
+    <div data-aos="fade-up" data-aos-delay="500">Delayed Animation</div> -->
+    <div data-aos="zoom-in" data-aos-easing="ease-out">Smooth Zoom</div>
+    <div data-aos="fade-up" data-aos-offset="1000">Starts After Scrolling 300px</div>
+    <div id="trigger"></div>
+    <div data-aos="fade-up" data-aos-anchor="#trigger">I Animate When #trigger is Visible</div>
+    <div data-aos="flip-left" data-aos-delay="300" data-aos-duration="2000" data-aos-easing="ease-in-out">
+        Fancy Flip Effect
+    </div>
+    
+    <section id="testimonials" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4" data-aos="fade-up">What Our Clients Say</h2>
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="card p-3">
+                        <blockquote class="blockquote mb-0">
+                            <p>"Great service and quality products! Highly recommend."</p>
+                            <footer class="blockquote-footer">John Doe</footer>
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="card p-3">
+                        <blockquote class="blockquote mb-0">
+                            <p>"Amazing experience. I love their professionalism."</p>
+                            <footer class="blockquote-footer">Jane Smith</footer>
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="card p-3">
+                        <blockquote class="blockquote mb-0">
+                            <p>"Exceptional customer support. I'll be back for more!"</p>
+                            <footer class="blockquote-footer">Michael Brown</footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+
+
+
+
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        AOS.init({
+            once: false,
+            mirror: true
+        });
+
+    </script>
+    
+</body>
+</html>

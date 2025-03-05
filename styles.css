@@ -1,0 +1,49 @@
+html {
+    scroll-behavior: smooth;
+}
+body{
+    padding-top: 0px;
+    font-family: 'Poppins', sans-serif;
+}
+.theme{
+    color: #975c35;
+}
+.bg-theme{
+    background-color: #975c35;
+}
+.hero-text{
+    margin-top: 150px !important; 
+}
+.bigger{
+    font-size: 58px;
+}
+.big-title{
+    font-size: 55px;
+    margin-top: 40px;
+}
+.about-title{
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.about-me-underline{
+    text-decoration: underline;
+    /* width: 10%; */
+}
+.material-icons.icons{
+    font-size: 3rem;
+}
+.btn-theme{
+    background-color: #975c35;
+    color: white;
+}
+.btn-theme:hover{
+    color: white;
+    background-color: #975c35;
+    box-shadow: 0px 2px 6px #975c35;
+    transition: 0.3s ease-in-out;
+}
+.form-control:focus {
+    border-color: #975c35 !important;
+    outline: none !important; 
+    box-shadow: 0 0 5px #975c35 !important; 
+}
