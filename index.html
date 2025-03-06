@@ -23,11 +23,11 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav me-auto mb-lg-0">
                     </ul>
                     <ul class="navbar-nav justify-content-end mx-auto nav-underline">
                         <li class="nav-item px-3">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                         </li>
                         <li class="nav-item px-3">
                             <a class="nav-link" href="#about">About</a>
@@ -54,26 +54,27 @@
     </header>
 
     <main>
-        <section class="container py-5" id="hero">
+        <section class="container py-lg-5 py-md-5" id="hero">
             <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-6 my-5 text-start hero-text" data-aos="fade-right" data-aos-duration="1000">
+                <div class="col-sm-12 col-md-6 col-lg-6 my-5 text-lg-start hero-text" data-aos="fade-right" data-aos-duration="1000">
                     <h1 class="bigger">Hello👋🏾, I'm Lome.<br></h1>
                     <h1 class="bigger">A Fullstack Developer.</h1>
                     <p>I build dynamic and responsive web applications, With skills in both frontend and backend development.</p>
                     <!-- TODO: Icons for socials -->
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6 text-center" data-aos="fade-left" data-aos-duration="1000"">
-                    <img src="assets/images/Coding-bro.png" width="500px" alt="step1 image">
+                    <img src="assets/images/Coding-bro.png" class="img-hero "alt="step1 image">
                 </div>
             </div>
         </section>
 
-        <section class="container py-5" id="about">
+        <!-- desktop about -->
+        <section class="container py-lg-5 py-md-5 d-none d-md-block" id="about">
             <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-6" data-aos="fade-right" data-aos-delay="100" data-aos-duration="1500">
-                    <img src="assets/images/Coding workshop-amico.png" width="500px" alt="">
+                <div class="col-md-6 col-lg-6 img-about" data-aos="fade-right" data-aos-delay="100" data-aos-duration="1500">
+                    <img src="assets/images/Coding workshop-amico.png" class="img-hero img-md" alt="">
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-6">
+                <div class="col-md-6 col-lg-6">
                     <div data-aos="fade-left" data-aos-delay="100" data-aos-duration="1500">
                         <p class="theme big-title"><span class="about-me-underline">Abo</span>ut Me</p>
                         <h4>Hey there! I'm Lome, a passionate Fullstack Developer with a love for building user-friendly websites from the ground up. I have expertise in both front-end and back-end development, and I'm currently based in Abuja, Nigeria.</h4>
@@ -81,9 +82,25 @@
                 </div>
             </div>
         </section>
+
+        <!-- mobile about -->
+        <section class="container p-5 d-block d-md-none" id="about">
+            <div class="row">
+                <div class="col">
+                    <div data-aos="fade-left" data-aos-duration="500">
+                        <p class="theme text-center big-title bigger"><span class="about-me-underline">Abo</span>ut Me</p>
+                        <h4>Hey there! I'm Lome, a passionate Fullstack Developer with a love for building user-friendly websites from the ground up. I have expertise in both front-end and back-end development, and I'm currently based in Abuja, Nigeria.</h4>
+                    </div>
+                </div>
+                <div class="col img-about" data-aos="fade-right" data-aos-duration="500">
+                    <img src="assets/images/Coding workshop-amico.png" class="img-hero" alt="">
+                </div>
+            </div>
+        </section>
         
 
-        <section class="container py-5" id="services">
+        <!-- desktop services -->
+        <section class="container py-lg-5 py-md-5 d-none d-md-block" id="services">
             <div class="big-title text-center" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500">
                 <p class="about-title" style="font-size: 16px;">Services</p>
                 <p class="theme about-title"><span class="about-me-underline">Ski</span>ll-Set</p>
@@ -134,7 +151,61 @@
             </div>
         </section>
 
-        <section class="container py-5" id="projects">
+        <!-- mobile services -->
+        <section class="container d-block d-md-none" id="services">
+            <div class="big-title text-center bigger" data-aos="fade-up" data-aos-delay="100" data-aos-duration="500">
+                <p class="about-title" style="font-size: 16px;">Services</p>
+                <p class="theme about-title"><span class="about-me-underline">Ski</span>ll-Set</p>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
+                    <div class="card my-3 me-3 p-3 text-center service-card" data-aos="fade-up" data-aos-delay="500" data-aos-duration="500">
+                        <h1 class="h1 theme card-header"><i class="fa-brands fa-github"></i></h1>
+                        <h4 class="card-title pt-3 ps-3">Git Version Control</h4>
+                        <h6 class="card-text">I manage and track code changes with Git(this ensures your project is in safe hands), and I Collaborate seamlessly with teams using branching, merging, and pull requests.</h6>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
+                    <div class="card my-3 me-3 p-3 text-center service-card" data-aos="fade-up" data-aos-delay="500" data-aos-duration="500">
+                        <h1 class="theme card-header"><i class="material-icons icons">language</i></h1>
+                        <h4 class="card-title pt-3 ps-3">Website Development</h4>
+                        <h6 class="card-text">I Build dynamic and scalable websites Which places the needs of the user(Yes! thats you) at the center of development.</h6>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
+                    <div class="card my-3 me-3 p-3 text-center service-card" data-aos="fade-up" data-aos-delay="500" data-aos-duration="500">
+                        <h1 class="theme card-header"><i class="material-icons icons">devices</i></h1>
+                        <h4 class="card-title pt-3 ps-3">Responsive Website Design</h4>
+                        <h6 class="card-text">I Create websites that look great and are user freindly on all devices. Ensuring a seamless user experience across desktops, tablets, and even mobile phones.</h6>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
+                    <div class="card my-3 me-3 p-3 text-center service-card" data-aos="fade-up" data-aos-delay="500" data-aos-duration="500">
+                        <h1 class="theme card-header"><i class="material-icons icons">code</i></h1>
+                        <h4 class="card-title pt-3 ps-3">Front-end Development</h4>
+                        <h6 class="card-text">I create intuitive and visually appealing user interfaces using the basic languages(HTML, css & JavaScript) with modern frameworks like Materialize and Bootstrap.</h6>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
+                    <div class="card my-3 me-3 p-3 text-center service-card" data-aos="fade-up" data-aos-delay="500" data-aos-duration="500">
+                        <h1 class="theme card-header"><i class="material-icons icons">group</i></h1>
+                        <h4 class="card-title pt-3 ps-3">Communication & Collaboration</h4>
+                        <h6 class="card-text">I Work effectively with teams and other developers using tools like github and google meet to improve clear communication and project transparency.</h6>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
+                    <div class="card my-3 me-3 p-3 text-center service-card" data-aos="fade-up" data-aos-delay="500" data-aos-duration="500">
+                        <h1 class="theme card-header"><i class="material-icons icons">settings</i></h1>
+                        <h4 class="card-title pt-3 ps-3">Back-end Development</h4>
+                        <h6 class="card-text">I Develop and work on the server-side of websites using technologies like Laravel(PHP framework) to power your applications.</h6>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- desktop projects  -->
+        <section class="container py-lg-5 py-md-5 d-none d-md-block" id="projects">
             <div class="big-title text-center" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500">
                 <p class="theme about-title"><span class="about-me-underline">Pro</span>jects</p>
             </div>
@@ -174,11 +245,53 @@
             </div>
         </section>
 
-        <section class="container pt-3" id="contact">
+        <!-- desktop mobile -->
+        <section class="container d-block d-md-none" id="projects">
+            <div class="big-title text-center" data-aos="fade-up" data-aos-delay="100" data-aos-duration="500">
+                <p class="theme about-title bigger"><span class="about-me-underline">Pro</span>jects</p>
+            </div>
+            <!-- TODO: Turn video into a carousel -->
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
+                    <div class="card my-3 me-3 p-3 text-center" data-aos="fade-left" data-aos-duration="500" data-aos-delay="500">
+                        <video class="card-img-top" controls autoplay muted loop>
+                            <source src="assets/videos/Foodys.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <h4 class="card-title pt-3 ps-3">Foodys</h4>
+                        <h6 class="card-text">An In-house Restaurant Management System (Fullstack Project) made with <b>PHP</b> and <b>MaterializeCSS</b>. Foodys eases the processing of orders behind the counter.</h6>
+
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
+                    <div class="card my-3 me-3 p-3 text-center" data-aos="fade-left" data-aos-duration="500" data-aos-delay="1000">
+                        <video class="card-img-top" controls autoplay muted loop>
+                            <source src="assets/videos/School.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <h4 class="card-title pt-3 ps-3">School Website</h4>
+                        <h6 class="card-text">Worked on the Individual course seperation on the, <b><a href="https://cohtechobubra.edu.ng/courses.html">College of Health Technology, Obubra</a></b> School Website.</h6>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
+                    <div class="card my-3 me-3 p-3 text-center" data-aos="fade-left" data-aos-duration="500" data-aos-delay="500">
+                        <video class="card-img-top" controls autoplay muted loop>
+                            <source src="assets/videos/ftfc.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <h4 class="card-title pt-3 ps-3">FTFC</h4>
+                        <h6 class="card-text">Project FTFC is a file transfer, command based app built with python(Socket Communication), that enables users upload and receive files wirelessly through the teminal.</h6>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- desktop contact me -->
+        <section class="container pt-3 d-none d-md-block" id="contact">
             <div class="row contact-section">
                 <div class="col-sm-12 col-md-6 col-lg-6" data-aos="fade-right" data-aos-delay="500" data-aos-duration="1500">
                     <div class="big-title text-center pb-3" data-aos="fade-down" data-aos-delay="500" data-aos-duration="1500">
-                        <p class="theme about-title"><span class="about-me-underline">Con</span>nect with me</p>
+                        <p class="theme about-title bigger"><span class="about-me-underline">Con</span>nect with me</p>
                     </div>
                     <form action="https://formspree.io/f/mvgkpolw" method="POST">
                         <div class="form-floating mb-3">
@@ -199,20 +312,46 @@
                     </form>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6 text-center" data-aos="fade-left" data-aos-delay="500" data-aos-duration="1500">
-                    <img src="assets/images/Mail sent-rafiki.png" width="500px" alt="Mail Sent Illustration">
+                    <img src="assets/images/Mail sent-rafiki.png" class="img-hero "alt="Mail Sent Illustration">
                 </div>
             </div>
         </section>
-        
+
+        <!-- mobile -->
+        <section class="container pt-3 d-block d-md-none" id="contact">
+            <div class="row contact-section">
+                <div class="col-sm-12">
+                    <div class="big-title text-center pb-3 bigger">
+                        <p class="theme about-title"><span class="about-me-underline">Con</span>nect with me</p>
+                    </div>
+                    <form action="https://formspree.io/f/mvgkpolw" method="POST">
+                        <div class="form-floating mb-3">
+                            <input type="text" id="name" name="name" class="form-control" required />
+                            <label for="name" class="form-label">Name:</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" id="email" name="email" class="form-control" required />
+                            <label for="email" class="form-label">Email:</label>
+                        </div>
+                        <div class="form-floating">
+                            <textarea name="message" id="message" style="height: 150px" class="form-control" required></textarea>
+                            <label for="message">Write a message</label>
+                        </div>
+                        <div class="text-center w-100 mt-3">
+                            <button type="submit" class="btn-theme btn btn-lg p-3">Send Message!</button>
+                        </div>
+                    </form>
+                </div>
+        </section>
 
     </main>
 
     <footer class="footer mt-auto bg-body-tertiary text-center py-3">
         <div class="container">
             <a class="theme" target="_blank" href="https://storyset.com/web">Web illustrations by Storyset</a>
-            <p class="h5 text-muted d-inline-block px-3">&copy 2025 <a class="text-light" href="">Løme⚡️</a></p>
-            <h3 class="h3 text-light d-inline-block px-2"><a class="text-light" target="_blank" href="https://github.com/lome-ezehi"><i class="fa-brands fa-github"></i></a></h3>
-            <h3 class="h3 text-light d-inline-block px-2"><a class="text-light" href="#hero"><i class="material-icons">phone</i></a></h3>
+            <p class="h5 text-muted d-inline-block px-3">&copy 2025 <a class="text-light" style="text-decoration: none;" href="">Løme⚡️</a></p>
+            <h3 class="h3 text-light d-inline-block px-2"><a class="text-light d-none d-md-block" target="_blank" href="https://github.com/lome-ezehi"><i class="fa-brands fa-github"></i></a></h3>
+            <h3 class="h3 text-light d-inline-block px-2"><a class="text-light d-none d-md-block" href="#hero"><i class="material-icons">phone</i></a></h3>
         </div>
     </footer>
     

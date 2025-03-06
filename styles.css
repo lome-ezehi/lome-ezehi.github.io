@@ -5,7 +5,6 @@ body{
     padding-top: 30px;
     font-family: 'Poppins', sans-serif;
 }
-
 .theme{
     color: #975c35;
 }
@@ -14,6 +13,9 @@ body{
 }
 .hero-text{
     margin-top: 150px !important; 
+}
+.img-hero{
+    width: 500px !important;
 }
 .bigger{
     font-size: 58px;
@@ -57,4 +59,38 @@ body{
 }
 .contact-section{
     margin-bottom: 100px;
+}
+@media screen and (max-width: 767px) {
+    body{
+        padding-top: 0px;
+        margin-top: 0px;
+        font-family: 'Poppins', sans-serif;
+    }
+    .bigger{
+        font-size: 2.5rem;
+    }
+    .hero-text{
+        margin-top: 120px !important; 
+        text-align: center;
+    }
+    .img-hero{
+        width: 300px !important;
+        text-align: center;
+    }
+    .img-about{
+        text-align: center;
+    }
+    .img-mail{
+        width: 300px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .img-md, .img-hero {
+        max-width: 350px; /* Adjust this value as needed */
+        margin-top: 80px;
+    }
+    .about-title.bigger{
+        font-size: 2rem;
+    }
 }
