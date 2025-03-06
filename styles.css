@@ -2,9 +2,10 @@ html {
     scroll-behavior: smooth;
 }
 body{
-    padding-top: 0px;
+    padding-top: 30px;
     font-family: 'Poppins', sans-serif;
 }
+
 .theme{
     color: #975c35;
 }
@@ -46,4 +47,14 @@ body{
     border-color: #975c35 !important;
     outline: none !important; 
     box-shadow: 0 0 5px #975c35 !important; 
+}
+.service-card h6{
+    font-size: 17.5px !important;
+}
+.service-card h4{
+    font-weight: bold !important;
+    font-size: 20px;
+}
+.contact-section{
+    margin-bottom: 100px;
 }
