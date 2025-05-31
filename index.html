@@ -15,8 +15,45 @@
     <!-- custom css -->
     <link rel="stylesheet" href="styles.css">
 
+    <style>
+        /* Loading Spinner Styles */
+        #loading-spinner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #121212; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .spinner {
+            width: 70px;
+            height: 70px;
+            border: 8px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            border-top-color: #975c35;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        body.loaded #loading-spinner {
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
 </head>
-<body class="overflow-hidden">
+<body>
+    <div id="loading-spinner">
+        <div class="spinner"></div>
+    </div>
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
             <div class="container">
@@ -60,9 +97,12 @@
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-lg-6 my-5 text-lg-start hero-text" data-aos="fade-right" data-aos-duration="1000">
                     <h1 class="bigger">Hello👋🏾, I'm Lome.<br></h1>
-                    <h1 class="bigger">A Fullstack Developer.</h1>
-                    <p>I build dynamic and responsive web applications, With skills in both frontend and backend development.</p>
+                    <h2 class="">Website and Mobile App Developer.</h1>
+                    <p>I build dynamic and responsive web and mobile applications, With skills in both frontend and backend development.</p>
                     <!-- TODO: Icons for socials -->
+                    <div class="btn btn-lg btn-primary">
+                        <a href="https://drive.google.com/file/d/1EucuztbCh9Ct5yrYEIWq5tfeS0fZ23eH/view?usp=sharing" target="_blank" class="text-white" style="text-decoration: none;">My Resume</a>
+                    </div>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6 text-center" data-aos="fade-left" data-aos-duration="1000"">
                     <img src="assets/images/Coding-bro.png" class="img-hero "alt="step1 image">
@@ -77,8 +117,9 @@
                     <img src="assets/images/Coding workshop-amico.png" class="img-hero img-md" alt="">
                 </div>
                 <div class="col-md-6 col-lg-6">
-                    <div data-aos="fade-left" data-aos-delay="100" data-aos-duration="1500">
-                        <p class="theme big-title"><span class="">Abo</span>ut Me</p>
+                    <div class="big-title text-end bigger section-heading"  data-aos="fade-left" data-aos-duration="500">
+                        <p class="theme about-title">About Me</p>
+                        <h2></h2>
                         <h4>Hey there! I'm Lome, a passionate Fullstack Developer with a love for building user-friendly websites from the ground up. I have expertise in both front-end and back-end development, and I'm currently based in Abuja, Nigeria.</h4>
                     </div>
                 </div>
@@ -89,8 +130,9 @@
         <section class="container p-5 d-block d-md-none" id="about">
             <div class="row">
                 <div class="col">
-                    <div data-aos="fade-left" data-aos-duration="500">
-                        <p class="theme text-center big-title bigger"><span class="">Abo</span>ut Me</p>
+                    <div class="big-title text-center bigger section-heading"  data-aos="fade-left" data-aos-duration="500">
+                        <p class="theme about-title">About Me</p>
+                        <h2></h2>
                         <h4>Hey there! I'm Lome, a passionate Fullstack Developer with a love for building user-friendly websites from the ground up. I have expertise in both front-end and back-end development, and I'm currently based in Abuja, Nigeria.</h4>
                     </div>
                 </div>
@@ -103,9 +145,10 @@
 
         <!-- desktop services -->
         <section class="container py-lg-5 py-md-5 d-none d-md-block" id="services">
-            <div class="big-title text-center" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500">
-                <p class="about-title" style="font-size: 16px;">Services</p>
+            <div class="big-title text-cente section-heading" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500">
+                <!-- <p class="about-title" style="font-size: 16px;">Services</p> -->
                 <p class="theme about-title"><span class="">Ski</span>ll-Set</p>
+                <h2></h2>
             </div>
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
@@ -155,9 +198,10 @@
 
         <!-- mobile services -->
         <section class="container d-block d-md-none" id="services">
-            <div class="big-title text-center bigger" data-aos="fade-up" data-aos-delay="100" data-aos-duration="500">
-                <p class="about-title" style="font-size: 16px;">Services</p>
+            <div class="big-title text-center bigger section-heading" data-aos="fade-up" data-aos-delay="100" data-aos-duration="500">
+                <!-- <p class="about-title" style="font-size: 16px;">Services</p>  -->
                 <p class="theme about-title"><span class="">Ski</span>ll-Set</p>
+                <h2></h2>
             </div>
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
@@ -207,84 +251,32 @@
 
 
         <!-- desktop projects  -->
-        <section class="container py-lg-5 py-md-5 d-none d-md-block" id="projects">
-            <div class="big-title text-center" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500">
+        <section class="py-lg-5 py-md-5 " id="projects">
+            <div class="big-title text-center section-heading" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500">
                 <p class="theme about-title"><span class="">Pro</span>jects</p>
+                <h2></h2>
             </div>
-            <!-- TODO: Turn video into a carousel -->
-            <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
-                    <div class="card my-3 me-3 p-3 text-center" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="500">
-                        <video class="card-img-top" controls autoplay muted loop>
-                            <source src="assets/videos/Foodys.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <h4 class="card-title pt-3 ps-3">Foodys</h4>
-                        <h6 class="card-text">An In-house Restaurant Management System (Fullstack Project) made with <b>PHP</b> and <b>MaterializeCSS</b>. Foodys eases the processing of orders behind the counter.</h6>
+            <div class="carousel-container">
+                <div class="marquee-wrapper">
+                    <!-- First 5 images -->
+                    <div class="carousel-div"><img class="items" src="./assets/images/image1.png" alt="1"></div>
+                    <div class="carousel-div"><img class="items" src="./assets/images/image2.png" alt="2"></div>
+                    <div class="carousel-div"><img class="items" src="./assets/images/image3.png" alt="3"></div>
+                    <div class="carousel-div"><img class="items" src="./assets/images/image4.png" alt="4"></div>
+                    <div class="carousel-div"><img class="items" src="./assets/images/image5.png" alt="5"></div>
+                    <div class="carousel-div"><img class="items" src="./assets/images/image6.png" alt="6"></div>
+                    <div class="carousel-div"><img class="items" src="./assets/images/image7.png" alt="7"></div>
 
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
-                    <div class="card my-3 me-3 p-3 text-center" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="1000">
-                        <video class="card-img-top" controls autoplay muted loop>
-                            <source src="assets/videos/School.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <h4 class="card-title pt-3 ps-3">School Website</h4>
-                        <h6 class="card-text">Worked on the Individual course seperation on the, <b><a href="https://cohtechobubra.edu.ng/courses.html">College of Health Technology, Obubra</a></b> School Website.</h6>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
-                    <div class="card my-3 me-3 p-3 text-center" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="1500">
-                        <video class="card-img-top" controls autoplay muted loop>
-                            <source src="assets/videos/ftfc.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <h4 class="card-title pt-3 ps-3">FTFC</h4>
-                        <h6 class="card-text">Project FTFC is a file transfer, command based app built with python(Socket Communication), that enables users upload and receive files wirelessly through the teminal.</h6>
-                    </div>
+                    <!-- Duplicate first 5 images to create infinite loop -->
+                    <div class="carousel-div"><img class="items" src="./assets/images/image1.png" alt="1"></div>
+                    <div class="carousel-div"><img class="items" src="./assets/images/image2.png" alt="2"></div>
+                    <div class="carousel-div"><img class="items" src="./assets/images/image3.png" alt="3"></div>
+                    <div class="carousel-div"><img class="items" src="./assets/images/image4.png" alt="4"></div>
+                    <div class="carousel-div"><img class="items" src="./assets/images/image5.png" alt="5"></div>
+                    <div class="carousel-div"><img class="items" src="./assets/images/image6.png" alt="6"></div>
+                    <div class="carousel-div"><img class="items" src="./assets/images/image7.png" alt="7"></div>
                 </div>
             </div>
-        </section>
-
-        <!-- desktop mobile -->
-        <section class="container d-block d-md-none" id="projects">
-            <div class="big-title text-center" data-aos="fade-up" data-aos-delay="100" data-aos-duration="500">
-                <p class="theme about-title bigger"><span class="">Pro</span>jects</p>
-            </div>
-            <!-- TODO: Turn video into a carousel -->
-            <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
-                    <div class="card my-3 me-3 p-3 text-center" data-aos="fade-left" data-aos-duration="500" data-aos-delay="500">
-                        <video class="card-img-top" controls autoplay muted loop>
-                            <source src="assets/videos/Foodys.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <h4 class="card-title pt-3 ps-3">Foodys</h4>
-                        <h6 class="card-text">An In-house Restaurant Management System (Fullstack Project) made with <b>PHP</b> and <b>MaterializeCSS</b>. Foodys eases the processing of orders behind the counter.</h6>
-
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
-                    <div class="card my-3 me-3 p-3 text-center" data-aos="fade-left" data-aos-duration="500" data-aos-delay="1000">
-                        <video class="card-img-top" controls autoplay muted loop>
-                            <source src="assets/videos/School.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <h4 class="card-title pt-3 ps-3">School Website</h4>
-                        <h6 class="card-text">Worked on the Individual course seperation on the, <b><a href="https://cohtechobubra.edu.ng/courses.html">College of Health Technology, Obubra</a></b> School Website.</h6>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
-                    <div class="card my-3 me-3 p-3 text-center" data-aos="fade-left" data-aos-duration="500" data-aos-delay="500">
-                        <video class="card-img-top" controls autoplay muted loop>
-                            <source src="assets/videos/ftfc.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <h4 class="card-title pt-3 ps-3">FTFC</h4>
-                        <h6 class="card-text">Project FTFC is a file transfer, command based app built with python(Socket Communication), that enables users upload and receive files wirelessly through the teminal.</h6>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -292,8 +284,9 @@
         <section class="container pt-3 d-none d-md-block" id="contact">
             <div class="row contact-section">
                 <div class="col-sm-12 col-md-6 col-lg-6" data-aos="fade-right" data-aos-delay="500" data-aos-duration="1500">
-                    <div class="big-title text-center pb-3" data-aos="fade-down" data-aos-delay="500" data-aos-duration="1500">
+                    <div class="big-title text-center section-heading" data-aos="fade-down" data-aos-delay="500" data-aos-duration="1500">
                         <p class="theme about-title bigger"><span class="">Con</span>nect with me</p>
+                        <h2></h2>
                     </div>
                     <form action="https://formspree.io/f/mvgkpolw" method="POST">
                         <div class="form-floating mb-3">
@@ -323,8 +316,9 @@
         <section class="container pt-3 d-block d-md-none" id="contact">
             <div class="row contact-section">
                 <div class="col-sm-12">
-                    <div class="big-title text-center pb-3 bigger">
+                    <div class="big-title text-center section-heading pb-3 bigger">
                         <p class="theme about-title"><span class="">Con</span>nect with me</p>
+                        <h2></h2>
                     </div>
                     <form action="https://formspree.io/f/mvgkpolw" method="POST">
                         <div class="form-floating mb-3">
@@ -364,6 +358,45 @@
         AOS.init({
             once: true
         });
+
+        // Show loading spinner until everything is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wait for all images to load
+            const images = document.images;
+            const totalImages = images.length;
+            let imagesLoaded = 0;
+            
+            // If there are no images, just remove the spinner
+            if(totalImages === 0) {
+                document.body.classList.add('loaded');
+                return;
+            }
+            
+            // Check each image
+            Array.from(images).forEach(img => {
+                if(img.complete) {
+                    imageLoaded();
+                } else {
+                    img.addEventListener('load', imageLoaded);
+                    img.addEventListener('error', imageLoaded); // Even if image fails to load
+                }
+            });
+            
+            function imageLoaded() {
+                imagesLoaded++;
+                if(imagesLoaded === totalImages) {
+                    // Also wait for AOS to initialize
+                    setTimeout(() => {
+                        document.body.classList.add('loaded');
+                    }, 500); // Small delay for smoother transition
+                }
+            }
+        });
+        
+        // Fallback - if something goes wrong, remove spinner after 5 seconds
+        setTimeout(() => {
+            document.body.classList.add('loaded');
+        }, 5000);
     </script>
 </body>
 </html>

@@ -4,6 +4,7 @@ html {
 body{
     padding-top: 30px;
     font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
 }
 .theme{
     color: #975c35;
@@ -23,6 +24,20 @@ body{
 .big-title{
     font-size: 55px;
     margin-top: 40px;
+    position: relative;
+}
+
+.section-heading {
+    padding-bottom: 5px;
+    position: relative;
+}
+
+.section-heading h2::after {
+    content: "";
+    height: 3px;
+    background: #975c35;
+    display: inline-block;
+    width: 120px;
 }
 .about-title{
     padding: 0 !important;
@@ -30,7 +45,6 @@ body{
 }
 .about-me-underline{
     text-decoration: underline;
-    /* width: 10%; */
 }
 .material-icons.icons{
     font-size: 3rem;
@@ -60,6 +74,83 @@ body{
 .contact-section{
     margin-bottom: 100px;
 }
+.btn-primary{
+    background-color: #975c35 !important;
+    border: #975c35 !important;
+}
+
+
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 20px 0;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    /* Remove backdrop-filter for better mobile performance */
+}
+
+.marquee-wrapper {
+    display: flex;
+    width: max-content; /* Important for proper scrolling */
+    animation: scroll 25s linear infinite;
+}
+
+.carousel-div {
+    flex-shrink: 0;
+    margin: 0 15px;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    width: 500px; /* Reduced width for mobile */
+}
+
+.carousel-div:hover {
+    transform: scale(1.05);
+}
+
+.items {
+    width: 100%;
+    display: block;
+    border-radius: 15px;
+    height: auto; /* Ensure proper aspect ratio */
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); 
+    }
+}
+
+/* Pause animation on hover */
+.carousel-container:hover .marquee-wrapper {
+    animation-play-state: paused;
+}
+
+@media screen and (max-width: 767px) {
+    .carousel-div {
+        width: 300px; 
+        margin: 0 10px;
+    }
+    
+    .marquee-wrapper {
+        animation: scroll 25s linear infinite; /* Slower for mobile */
+    }
+    
+    
+    .carousel-container {
+        backdrop-filter: none;
+    }
+    
+    
+    .carousel-div:hover {
+        transform: none;
+    }
+}
+
 @media screen and (max-width: 767px) {
     body{
         padding-top: 0px;
