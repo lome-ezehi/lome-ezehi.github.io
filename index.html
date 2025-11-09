@@ -3,34 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ezehi Lome</title>
-
-    <!-- <link rel="shortcut icon" href="assets/core-logo.png" type="image/x-icon"> -->
+    <title>Ezehi Lome - Fullstack Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
-
-    <!-- custom css -->
-    <link rel="stylesheet" href="styles.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Loading Spinner Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #e0e0e0;
+            overflow-x: hidden;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #975c35 0%, #c17a4f 100%);
+            border-radius: 5px;
+        }
+
+        /* Loading Spinner */
         #loading-spinner {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #121212; 
+            background: #0a0a0a;
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 9999;
             transition: opacity 0.5s ease;
         }
-        
+
         .spinner {
             width: 70px;
             height: 70px;
@@ -39,14 +59,611 @@
             border-top-color: #975c35;
             animation: spin 1s ease-in-out infinite;
         }
-        
+
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
-        
+
         body.loaded #loading-spinner {
             opacity: 0;
             pointer-events: none;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(18, 18, 18, 0.95) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 10, 10, 0.98) !important;
+            box-shadow: 0 6px 40px rgba(151, 92, 53, 0.2);
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #975c35 0%, #c17a4f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-link {
+            position: relative;
+            color: #e0e0e0 !important;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #975c35 0%, #c17a4f 100%);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 80%;
+        }
+
+        .nav-link:hover {
+            color: #975c35 !important;
+        }
+
+        /* Theme color */
+        .theme {
+            background: linear-gradient(135deg, #975c35 0%, #c17a4f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        /* Hero Section */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 50%, rgba(151, 92, 53, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-text h2 {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #b0b0b0;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #a0a0a0;
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #975c35 0%, #c17a4f 100%);
+            border: none;
+            padding: 15px 40px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #c17a4f 0%, #975c35 100%);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn-primary:hover::before {
+            left: 0;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(151, 92, 53, 0.4);
+        }
+
+        .img-hero {
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 20px 40px rgba(151, 92, 53, 0.3));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Section Headings */
+        .section-heading {
+            margin-bottom: 4rem;
+        }
+
+        .about-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .about-title span {
+            color: #975c35;
+        }
+
+        /* About Section */
+        #about {
+            padding: 100px 0;
+        }
+
+        #about h4 {
+            font-size: 1.2rem;
+            line-height: 2;
+            color: #b0b0b0;
+        }
+
+        /* Services/Skills Section */
+        #services {
+            padding: 100px 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(151, 92, 53, 0.05) 50%, transparent 100%);
+        }
+
+        .service-card {
+            background: rgba(30, 30, 30, 0.8);
+            border: 1px solid rgba(151, 92, 53, 0.2);
+            border-radius: 15px;
+            transition: all 0.4s ease;
+            height: 100%;
+            backdrop-filter: blur(10px);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: #975c35;
+            box-shadow: 0 15px 40px rgba(151, 92, 53, 0.3);
+            background: rgba(40, 40, 40, 0.9);
+        }
+
+        .service-card .card-header {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #e0e0e0;
+        }
+
+        .service-card .card-text {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #a0a0a0;
+        }
+
+        .icons {
+            font-size: 3rem !important;
+        }
+
+        /* Projects Carousel */
+        #projects {
+            padding: 100px 0;
+            overflow: hidden;
+        }
+
+        .carousel-container {
+            width: 100%;
+            overflow: hidden;
+            padding: 50px 0;
+            position: relative;
+        }
+
+        .carousel-container::before,
+        .carousel-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 200px;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .carousel-container::before {
+            left: 0;
+            background: linear-gradient(90deg, #0a0a0a 0%, transparent 100%);
+        }
+
+        .carousel-container::after {
+            right: 0;
+            background: linear-gradient(90deg, transparent 0%, #0a0a0a 100%);
+        }
+
+        .marquee-wrapper {
+            display: flex;
+            animation: scroll 30s linear infinite;
+            width: fit-content;
+        }
+
+        .marquee-wrapper:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .carousel-div {
+            flex: 0 0 auto;
+            margin: 0 20px;
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .carousel-div:hover {
+            transform: scale(1.05);
+        }
+
+        .carousel-div img {
+            width: 400px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 2px solid rgba(151, 92, 53, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: rgba(20, 20, 20, 0.5);
+        }
+
+        .carousel-div:hover img {
+            border-color: #975c35;
+            box-shadow: 0 10px 30px rgba(151, 92, 53, 0.4);
+        }
+
+        /* Modal Styles */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .image-modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content-wrapper {
+            position: relative;
+            max-width: 90%;
+            max-height: 90vh;
+            animation: zoomIn 0.3s ease;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(151, 92, 53, 0.5);
+            transition: opacity 0.15s ease;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: #fff;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(151, 92, 53, 0.8);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .modal-close:hover {
+            background: #975c35;
+            transform: rotate(90deg);
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #fff;
+            font-size: 40px;
+            cursor: pointer;
+            background: rgba(151, 92, 53, 0.8);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            user-select: none;
+        }
+
+        .modal-nav:hover {
+            background: #975c35;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .modal-prev {
+            left: -70px;
+        }
+
+        .modal-next {
+            right: -70px;
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 100px 0;
+        }
+
+        .form-control,
+        .form-floating > .form-control {
+            background: rgba(30, 30, 30, 0.8);
+            border: 1px solid rgba(151, 92, 53, 0.3);
+            color: #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus,
+        .form-floating > .form-control:focus {
+            background: rgba(40, 40, 40, 0.9);
+            border-color: #975c35;
+            box-shadow: 0 0 20px rgba(151, 92, 53, 0.3);
+            color: #e0e0e0;
+        }
+
+        .form-floating > label {
+            color: #a0a0a0;
+        }
+
+        .form-control:focus ~ label,
+        .form-floating > .form-control:not(:placeholder-shown) ~ label {
+            color: #975c35;
+        }
+
+        .btn-theme {
+            background: linear-gradient(135deg, #975c35 0%, #c17a4f 100%);
+            border: none;
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-theme:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(151, 92, 53, 0.5);
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(10, 10, 10, 0.95) !important;
+            border-top: 1px solid rgba(151, 92, 53, 0.2);
+            padding: 30px 0;
+        }
+
+        .footer a {
+            transition: all 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #975c35 !important;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            #hero {
+                padding-top: 80px;
+                min-height: auto;
+                padding-bottom: 50px;
+            }
+
+            .hero-text {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-text h2 {
+                font-size: 1.3rem;
+            }
+
+            .hero-text p {
+                font-size: 1rem;
+            }
+
+            .btn-primary {
+                padding: 12px 30px;
+                font-size: 0.9rem;
+            }
+
+            #about {
+                padding: 60px 0;
+            }
+
+            #about .row {
+                flex-direction: column-reverse;
+            }
+
+            #about h4 {
+                font-size: 1rem;
+                line-height: 1.8;
+                text-align: center;
+            }
+
+            .about-title {
+                font-size: 2rem;
+                text-align: center;
+                display: block;
+            }
+
+            #services {
+                padding: 60px 0;
+            }
+
+            .service-card {
+                margin-bottom: 20px;
+            }
+
+            .carousel-div img {
+                width: 280px;
+                height: 180px;
+            }
+
+            .carousel-container::before,
+            .carousel-container::after {
+                width: 50px;
+            }
+
+            #projects {
+                padding: 60px 0;
+            }
+
+            #contact {
+                padding: 60px 0;
+            }
+
+            #contact .row {
+                flex-direction: column-reverse;
+            }
+
+            .section-heading {
+                margin-bottom: 2rem;
+                text-align: center;
+            }
+
+            .modal-close {
+                top: 10px;
+                right: 10px;
+            }
+
+            .modal-prev {
+                left: 10px;
+            }
+
+            .modal-next {
+                right: 10px;
+            }
+
+            .modal-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 30px;
+            }
+
+            .img-hero {
+                max-width: 80%;
+                margin: 0 auto;
+                display: block;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Add animation classes */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .slide-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUp 0.8s ease forwards;
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
@@ -54,19 +671,18 @@
     <div id="loading-spinner">
         <div class="spinner"></div>
     </div>
+
     <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+        <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container">
-                <a class="navbar-brand " href="#">Løme</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand" href="#">Løme</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-lg-0">
-                    </ul>
-                    <ul class="navbar-nav justify-content-end mx-auto nav-underline">
+                    <ul class="navbar-nav ms-auto">
                         <li class="nav-item px-3">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" href="#hero">Home</a>
                         </li>
                         <li class="nav-item px-3">
                             <a class="nav-link" href="#about">About</a>
@@ -77,14 +693,8 @@
                         <li class="nav-item px-3">
                             <a class="nav-link" href="#projects">Projects</a>
                         </li>
-                    </ul>
-                    <ul class="navbar-nav nav-underline">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contact Me</a>
-                            <!-- TODO: Phone icon -->
-                        </li>
-                        <li class="nav-item pt-2">
-                            <p>| +234 8136763185</p>
+                        <li class="nav-item px-3">
+                            <a class="nav-link" href="#contact">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -93,310 +703,341 @@
     </header>
 
     <main>
-        <section class="container py-lg-5 py-md-5" id="hero">
-            <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-6 my-5 text-lg-start hero-text" data-aos="fade-right" data-aos-duration="1000">
-                    <h1 class="bigger">Hello👋🏾, I'm Lome.<br></h1>
-                    <h2 class="">Website and Mobile App Developer.</h1>
-                    <p>I build dynamic and responsive web and mobile applications, With skills in both frontend and backend development.</p>
-                    <!-- TODO: Icons for socials -->
-                    <div class="btn btn-lg btn-primary">
-                        <a href="https://drive.google.com/file/d/1EucuztbCh9Ct5yrYEIWq5tfeS0fZ23eH/view?usp=sharing" target="_blank" class="text-white" style="text-decoration: none;">My Resume</a>
-                    </div>
+        <section class="container" id="hero">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-text fade-in">
+                    <h1>Hello👋🏾, I'm Lome.</h1>
+                    <h2>Website and Mobile App Developer</h2>
+                    <p>I build dynamic and responsive web and mobile applications with skills in both frontend and backend development.</p>
+                    <a href="https://drive.google.com/file/d/1EucuztbCh9Ct5yrYEIWq5tfeS0fZ23eH/view?usp=sharing" target="_blank" class="btn btn-primary btn-lg">
+                        View My Resume <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-6 text-center" data-aos="fade-left" data-aos-duration="1000"">
-                    <img src="assets/images/Coding-bro.png" class="img-hero "alt="step1 image">
+                <div class="col-lg-6 text-center fade-in">
+                    <img src="assets/images/Coding-bro.png" class="img-hero" alt="Developer Illustration">
                 </div>
             </div>
         </section>
 
-        <!-- desktop about -->
-        <section class="container py-lg-5 py-md-5 d-none d-md-block" id="about">
-            <div class="row">
-                <div class="col-md-6 col-lg-6 img-about" data-aos="fade-right" data-aos-delay="100" data-aos-duration="1500">
-                    <img src="assets/images/Coding workshop-amico.png" class="img-hero img-md" alt="">
+        <section class="container" id="about">
+            <div class="row align-items-center">
+                <div class="col-lg-6 slide-up mb-4 mb-lg-0">
+                    <img src="assets/images/Coding workshop-amico.png" class="img-hero" alt="Coding Workshop">
                 </div>
-                <div class="col-md-6 col-lg-6">
-                    <div class="big-title text-end bigger section-heading"  data-aos="fade-left" data-aos-duration="500">
+                <div class="col-lg-6 slide-up">
+                    <div class="section-heading">
                         <p class="theme about-title">About Me</p>
-                        <h2></h2>
                         <h4>Hey there! I'm Lome, a passionate Fullstack Developer with a love for building user-friendly websites from the ground up. I have expertise in both front-end and back-end development, and I'm currently based in Abuja, Nigeria.</h4>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- mobile about -->
-        <section class="container p-5 d-block d-md-none" id="about">
-            <div class="row">
-                <div class="col">
-                    <div class="big-title text-center bigger section-heading"  data-aos="fade-left" data-aos-duration="500">
-                        <p class="theme about-title">About Me</p>
-                        <h2></h2>
-                        <h4>Hey there! I'm Lome, a passionate Fullstack Developer with a love for building user-friendly websites from the ground up. I have expertise in both front-end and back-end development, and I'm currently based in Abuja, Nigeria.</h4>
+        <section id="services">
+            <div class="container">
+                <div class="section-heading text-center slide-up">
+                    <p class="theme about-title"><span>Ski</span>ll-Set</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card service-card p-4 text-center">
+                            <h1 class="theme card-header"><i class="fa-brands fa-github"></i></h1>
+                            <h4 class="card-title">Git Version Control</h4>
+                            <h6 class="card-text">I manage and track code changes with Git, ensuring your project is in safe hands, and collaborate seamlessly with teams using branching, merging, and pull requests.</h6>
+                        </div>
                     </div>
-                </div>
-                <div class="col img-about" data-aos="fade-right" data-aos-duration="500">
-                    <img src="assets/images/Coding workshop-amico.png" class="img-hero" alt="">
-                </div>
-            </div>
-        </section>
-        
-
-        <!-- desktop services -->
-        <section class="container py-lg-5 py-md-5 d-none d-md-block" id="services">
-            <div class="big-title text-cente section-heading" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500">
-                <!-- <p class="about-title" style="font-size: 16px;">Services</p> -->
-                <p class="theme about-title"><span class="">Ski</span>ll-Set</p>
-                <h2></h2>
-            </div>
-            <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
-                    <div class="card my-3 me-3 p-3 text-center service-card" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1500">
-                        <h1 class="h1 theme card-header"><i class="fa-brands fa-github"></i></h1>
-                        <h4 class="card-title pt-3 ps-3">Git Version Control</h4>
-                        <h6 class="card-text">I manage and track code changes with Git(this ensures your project is in safe hands), and I Collaborate seamlessly with teams using branching, merging, and pull requests.</h6>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card service-card p-4 text-center">
+                            <h1 class="theme card-header"><i class="material-icons icons">language</i></h1>
+                            <h4 class="card-title">Website Development</h4>
+                            <h6 class="card-text">I build dynamic and scalable websites which place the needs of the user at the center of development.</h6>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
-                    <div class="card my-3 me-3 p-3 text-center service-card" data-aos="fade-up" data-aos-delay="1000" data-aos-duration="1500">
-                        <h1 class="theme card-header"><i class="material-icons icons">language</i></h1>
-                        <h4 class="card-title pt-3 ps-3">Website Development</h4>
-                        <h6 class="card-text">I Build dynamic and scalable websites Which places the needs of the user(Yes! thats you) at the center of development.</h6>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card service-card p-4 text-center">
+                            <h1 class="theme card-header"><i class="material-icons icons">devices</i></h1>
+                            <h4 class="card-title">Responsive Design</h4>
+                            <h6 class="card-text">I create websites that look great on all devices, ensuring a seamless user experience across desktops, tablets, and mobile phones.</h6>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
-                    <div class="card my-3 me-3 p-3 text-center service-card" data-aos="fade-up" data-aos-delay="1500" data-aos-duration="1500">
-                        <h1 class="theme card-header"><i class="material-icons icons">devices</i></h1>
-                        <h4 class="card-title pt-3 ps-3">Responsive Website Design</h4>
-                        <h6 class="card-text">I Create websites that look great and are user freindly on all devices. Ensuring a seamless user experience across desktops, tablets, and even mobile phones.</h6>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card service-card p-4 text-center">
+                            <h1 class="theme card-header"><i class="material-icons icons">code</i></h1>
+                            <h4 class="card-title">Front-end Development</h4>
+                            <h6 class="card-text">I create intuitive and visually appealing user interfaces using HTML, CSS & JavaScript with modern frameworks like Bootstrap.</h6>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
-                    <div class="card my-3 me-3 p-3 text-center service-card" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1500">
-                        <h1 class="theme card-header"><i class="material-icons icons">code</i></h1>
-                        <h4 class="card-title pt-3 ps-3">Front-end Development</h4>
-                        <h6 class="card-text">I create intuitive and visually appealing user interfaces using the basic languages(HTML, css & JavaScript) with modern frameworks like Materialize and Bootstrap.</h6>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card service-card p-4 text-center">
+                            <h1 class="theme card-header"><i class="material-icons icons">group</i></h1>
+                            <h4 class="card-title">Communication & Collaboration</h4>
+                            <h6 class="card-text">I work effectively with teams using tools like GitHub and Google Meet to improve clear communication and project transparency.</h6>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
-                    <div class="card my-3 me-3 p-3 text-center service-card" data-aos="fade-up" data-aos-delay="1000" data-aos-duration="1500">
-                        <h1 class="theme card-header"><i class="material-icons icons">group</i></h1>
-                        <h4 class="card-title pt-3 ps-3">Communication & Collaboration</h4>
-                        <h6 class="card-text">I Work effectively with teams and other developers using tools like github and google meet to improve clear communication and project transparency.</h6>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
-                    <div class="card my-3 me-3 p-3 text-center service-card" data-aos="fade-up" data-aos-delay="1500" data-aos-duration="1500">
-                        <h1 class="theme card-header"><i class="material-icons icons">settings</i></h1>
-                        <h4 class="card-title pt-3 ps-3">Back-end Development</h4>
-                        <h6 class="card-text">I Develop and work on the server-side of websites using technologies like Laravel(PHP framework) to power your applications.</h6>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card service-card p-4 text-center">
+                            <h1 class="theme card-header"><i class="material-icons icons">settings</i></h1>
+                            <h4 class="card-title">Back-end Development</h4>
+                            <h6 class="card-text">I develop the server-side of websites using technologies like Django to power your applications.</h6>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- mobile services -->
-        <section class="container d-block d-md-none" id="services">
-            <div class="big-title text-center bigger section-heading" data-aos="fade-up" data-aos-delay="100" data-aos-duration="500">
-                <!-- <p class="about-title" style="font-size: 16px;">Services</p>  -->
-                <p class="theme about-title"><span class="">Ski</span>ll-Set</p>
-                <h2></h2>
-            </div>
-            <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
-                    <div class="card my-3 me-3 p-3 text-center service-card" data-aos="fade-up" data-aos-delay="500" data-aos-duration="500">
-                        <h1 class="h1 theme card-header"><i class="fa-brands fa-github"></i></h1>
-                        <h4 class="card-title pt-3 ps-3">Git Version Control</h4>
-                        <h6 class="card-text">I manage and track code changes with Git(this ensures your project is in safe hands), and I Collaborate seamlessly with teams using branching, merging, and pull requests.</h6>
-                    </div>
+        <section id="projects">
+            <div class="container">
+                <div class="section-heading text-center slide-up">
+                    <p class="theme about-title"><span>Pro</span>jects</p>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
-                    <div class="card my-3 me-3 p-3 text-center service-card" data-aos="fade-up" data-aos-delay="500" data-aos-duration="500">
-                        <h1 class="theme card-header"><i class="material-icons icons">language</i></h1>
-                        <h4 class="card-title pt-3 ps-3">Website Development</h4>
-                        <h6 class="card-text">I Build dynamic and scalable websites Which places the needs of the user(Yes! thats you) at the center of development.</h6>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
-                    <div class="card my-3 me-3 p-3 text-center service-card" data-aos="fade-up" data-aos-delay="500" data-aos-duration="500">
-                        <h1 class="theme card-header"><i class="material-icons icons">devices</i></h1>
-                        <h4 class="card-title pt-3 ps-3">Responsive Website Design</h4>
-                        <h6 class="card-text">I Create websites that look great and are user freindly on all devices. Ensuring a seamless user experience across desktops, tablets, and even mobile phones.</h6>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
-                    <div class="card my-3 me-3 p-3 text-center service-card" data-aos="fade-up" data-aos-delay="500" data-aos-duration="500">
-                        <h1 class="theme card-header"><i class="material-icons icons">code</i></h1>
-                        <h4 class="card-title pt-3 ps-3">Front-end Development</h4>
-                        <h6 class="card-text">I create intuitive and visually appealing user interfaces using the basic languages(HTML, css & JavaScript) with modern frameworks like Materialize and Bootstrap.</h6>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
-                    <div class="card my-3 me-3 p-3 text-center service-card" data-aos="fade-up" data-aos-delay="500" data-aos-duration="500">
-                        <h1 class="theme card-header"><i class="material-icons icons">group</i></h1>
-                        <h4 class="card-title pt-3 ps-3">Communication & Collaboration</h4>
-                        <h6 class="card-text">I Work effectively with teams and other developers using tools like github and google meet to improve clear communication and project transparency.</h6>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
-                    <div class="card my-3 me-3 p-3 text-center service-card" data-aos="fade-up" data-aos-delay="500" data-aos-duration="500">
-                        <h1 class="theme card-header"><i class="material-icons icons">settings</i></h1>
-                        <h4 class="card-title pt-3 ps-3">Back-end Development</h4>
-                        <h6 class="card-text">I Develop and work on the server-side of websites using technologies like Laravel(PHP framework) to power your applications.</h6>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- desktop projects  -->
-        <section class="py-lg-5 py-md-5 " id="projects">
-            <div class="big-title text-center section-heading" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500">
-                <p class="theme about-title"><span class="">Pro</span>jects</p>
-                <h2></h2>
             </div>
             <div class="carousel-container">
                 <div class="marquee-wrapper">
-                    <!-- First 5 images -->
-                    <div class="carousel-div"><img class="items" src="./assets/images/image1.png" alt="1"></div>
-                    <div class="carousel-div"><img class="items" src="./assets/images/image2.png" alt="2"></div>
-                    <div class="carousel-div"><img class="items" src="./assets/images/image3.png" alt="3"></div>
-                    <div class="carousel-div"><img class="items" src="./assets/images/image4.png" alt="4"></div>
-                    <div class="carousel-div"><img class="items" src="./assets/images/image5.png" alt="5"></div>
-                    <div class="carousel-div"><img class="items" src="./assets/images/image6.png" alt="6"></div>
-                    <div class="carousel-div"><img class="items" src="./assets/images/image7.png" alt="7"></div>
-
-                    <!-- Duplicate first 5 images to create infinite loop -->
-                    <div class="carousel-div"><img class="items" src="./assets/images/image1.png" alt="1"></div>
-                    <div class="carousel-div"><img class="items" src="./assets/images/image2.png" alt="2"></div>
-                    <div class="carousel-div"><img class="items" src="./assets/images/image3.png" alt="3"></div>
-                    <div class="carousel-div"><img class="items" src="./assets/images/image4.png" alt="4"></div>
-                    <div class="carousel-div"><img class="items" src="./assets/images/image5.png" alt="5"></div>
-                    <div class="carousel-div"><img class="items" src="./assets/images/image6.png" alt="6"></div>
-                    <div class="carousel-div"><img class="items" src="./assets/images/image7.png" alt="7"></div>
+                    <div class="carousel-div"><img src="./assets/images/image1.png" alt="Project 1" onclick="openModal(0)"></div>
+                    <div class="carousel-div"><img src="./assets/images/image2.png" alt="Project 2" onclick="openModal(1)"></div>
+                    <div class="carousel-div"><img src="./assets/images/image3.png" alt="Project 3" onclick="openModal(2)"></div>
+                    <div class="carousel-div"><img src="./assets/images/image4.png" alt="Project 4" onclick="openModal(3)"></div>
+                    <div class="carousel-div"><img src="./assets/images/image5.png" alt="Project 5" onclick="openModal(4)"></div>
+                    <div class="carousel-div"><img src="./assets/images/image6.png" alt="Project 6" onclick="openModal(5)"></div>
+                    <div class="carousel-div"><img src="./assets/images/image7.png" alt="Project 7" onclick="openModal(6)"></div>
+                    <div class="carousel-div"><img src="./assets/images/image8.png" alt="Project 8" onclick="openModal(7)"></div>
+                    <div class="carousel-div"><img src="./assets/images/image9.png" alt="Project 9" onclick="openModal(8)"></div>
+                    
+                    <div class="carousel-div"><img src="./assets/images/image1.png" alt="Project 1" onclick="openModal(0)"></div>
+                    <div class="carousel-div"><img src="./assets/images/image2.png" alt="Project 2" onclick="openModal(1)"></div>
+                    <div class="carousel-div"><img src="./assets/images/image3.png" alt="Project 3" onclick="openModal(2)"></div>
+                    <div class="carousel-div"><img src="./assets/images/image4.png" alt="Project 4" onclick="openModal(3)"></div>
+                    <div class="carousel-div"><img src="./assets/images/image5.png" alt="Project 5" onclick="openModal(4)"></div>
+                    <div class="carousel-div"><img src="./assets/images/image6.png" alt="Project 6" onclick="openModal(5)"></div>
+                    <div class="carousel-div"><img src="./assets/images/image7.png" alt="Project 7" onclick="openModal(6)"></div>
+                    <div class="carousel-div"><img src="./assets/images/image8.png" alt="Project 8" onclick="openModal(7)"></div>
+                    <div class="carousel-div"><img src="./assets/images/image9.png" alt="Project 9" onclick="openModal(8)"></div>
                 </div>
-            </div>
             </div>
         </section>
 
-        <!-- desktop contact me -->
-        <section class="container pt-3 d-none d-md-block" id="contact">
-            <div class="row contact-section">
-                <div class="col-sm-12 col-md-6 col-lg-6" data-aos="fade-right" data-aos-delay="500" data-aos-duration="1500">
-                    <div class="big-title text-center section-heading" data-aos="fade-down" data-aos-delay="500" data-aos-duration="1500">
-                        <p class="theme about-title bigger"><span class="">Con</span>nect with me</p>
-                        <h2></h2>
+        <!-- Image Modal -->
+        <div id="imageModal" class="image-modal" onclick="closeModal(event)">
+            <div class="modal-content-wrapper">
+                <span class="modal-close" onclick="closeModal(event)">&times;</span>
+                <span class="modal-nav modal-prev" onclick="changeImage(-1, event)">&#10094;</span>
+                <img class="modal-image" id="modalImage" src="" alt="Project Preview">
+                <span class="modal-nav modal-next" onclick="changeImage(1, event)">&#10095;</span>
+                <!-- <a id="visitProjectBtn" class="visit-project-btn" href="#" target="_blank" onclick="event.stopPropagation()">
+                    Visit Project <i class="fas fa-external-link-alt"></i>
+                </a> -->
+            </div>
+        </div>
+
+        <section class="container" id="contact">
+            <div class="row align-items-center">
+                <div class="col-lg-6 slide-up mb-4 mb-lg-0">
+                    <div class="section-heading">
+                        <p class="theme about-title"><span>Con</span>nect with me</p>
                     </div>
-                    <form action="https://formspree.io/f/mvgkpolw" method="POST">
+                    <form action="https://formspree.io/f/myzlgbyn" method="POST">
                         <div class="form-floating mb-3">
-                            <input type="text" id="name" name="name" class="form-control" required />
-                            <label for="name" class="form-label">Name:</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Name" required />
+                            <label for="name">Name</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="email" id="email" name="email" class="form-control" required />
-                            <label for="email" class="form-label">Email:</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Email" required />
+                            <label for="email">Email</label>
                         </div>
-                        <div class="form-floating">
-                            <textarea name="message" id="message" style="height: 150px" class="form-control" required></textarea>
+                        <div class="form-floating mb-3">
+                            <textarea name="message" id="message" style="height: 150px" class="form-control" placeholder="Message" required></textarea>
                             <label for="message">Write a message</label>
                         </div>
-                        <div class="text-center w-100 mt-3">
-                            <button type="submit" class="btn-theme btn btn-lg p-3">Send Message!</button>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-theme btn-lg px-5 py-3">
+                                Send Message <i class="fas fa-paper-plane ms-2"></i>
+                            </button>
                         </div>
                     </form>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-6 text-center" data-aos="fade-left" data-aos-delay="500" data-aos-duration="1500">
-                    <img src="assets/images/Mail sent-rafiki.png" class="img-hero "alt="Mail Sent Illustration">
+                <div class="col-lg-6 text-center slide-up">
+                    <img src="assets/images/Mail sent-rafiki.png" class="img-hero" alt="Mail Sent">
                 </div>
             </div>
         </section>
-
-        <!-- mobile -->
-        <section class="container pt-3 d-block d-md-none" id="contact">
-            <div class="row contact-section">
-                <div class="col-sm-12">
-                    <div class="big-title text-center section-heading pb-3 bigger">
-                        <p class="theme about-title"><span class="">Con</span>nect with me</p>
-                        <h2></h2>
-                    </div>
-                    <form action="https://formspree.io/f/mvgkpolw" method="POST">
-                        <div class="form-floating mb-3">
-                            <input type="text" id="name" name="name" class="form-control" required />
-                            <label for="name" class="form-label">Name:</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="email" id="email" name="email" class="form-control" required />
-                            <label for="email" class="form-label">Email:</label>
-                        </div>
-                        <div class="form-floating">
-                            <textarea name="message" id="message" style="height: 150px" class="form-control" required></textarea>
-                            <label for="message">Write a message</label>
-                        </div>
-                        <div class="text-center w-100 mt-3">
-                            <button type="submit" class="btn-theme btn btn-lg p-3">Send Message!</button>
-                        </div>
-                    </form>
-                </div>
-        </section>
-
     </main>
 
-    <footer class="footer mt-auto bg-body-tertiary text-center py-3">
+    <footer class="footer text-center">
         <div class="container">
-            <a class="theme" target="_blank" href="https://storyset.com/web">Web illustrations by Storyset</a>
-            <p class="h5 text-muted d-inline-block px-3">&copy 2025 <a class="text-light" style="text-decoration: none;" href="">Løme⚡️</a></p>
-            <h3 class="h3 text-light d-inline-block px-2"><a class="text-light d-none d-md-block" target="_blank" href="https://github.com/lome-ezehi"><i class="fa-brands fa-github"></i></a></h3>
-            <h3 class="h3 text-light d-inline-block px-2"><a class="text-light d-none d-md-block" href="#hero"><i class="material-icons">phone</i></a></h3>
+            <div class="mb-3">
+                <a href="https://github.com/lome-ezehi" target="_blank" class="text-light mx-3 fs-4"><i class="fa-brands fa-github"></i></a>
+                <a href="#hero" class="text-light mx-3 fs-4"><i class="material-icons" style="vertical-align: middle;">phone</i></a>
+            </div>
+            <p class="text-muted mb-0">&copy; 2025 <span class="theme">Løme⚡️</span> - All Rights Reserved</p>
         </div>
     </footer>
-    
-    <script src="assets/js/bootstrap.bundle.js"></script>
-    <!-- AOS JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script>
-        AOS.init({
-            once: true
+        // Project images and links array
+        const projects = [
+            {
+                image: './assets/images/image1.png',
+                link: 'https://your-project-1-link.com',
+                title: 'Project 1'
+            },
+            {
+                image: './assets/images/image2.png',
+                link: 'https://your-project-2-link.com',
+                title: 'Project 2'
+            },
+            {
+                image: './assets/images/image3.png',
+                link: 'https://your-project-3-link.com',
+                title: 'Project 3'
+            },
+            {
+                image: './assets/images/image4.png',
+                link: 'https://your-project-4-link.com',
+                title: 'Project 4'
+            },
+            {
+                image: './assets/images/image5.png',
+                link: 'https://your-project-5-link.com',
+                title: 'Project 5'
+            },
+            {
+                image: './assets/images/image6.png',
+                link: 'https://your-project-6-link.com',
+                title: 'Project 6'
+            },
+            {
+                image: './assets/images/image7.png',
+                link: 'https://your-project-7-link.com',
+                title: 'Project 7'
+            },
+            {
+                image: './assets/images/image8.png',
+                link: 'https://your-project-8-link.com',
+                title: 'Project 8'
+            },
+            {
+                image: './assets/images/image9.png',
+                link: 'https://your-project-9-link.com',
+                title: 'Project 9'
+            }
+        ];
+
+        let currentImageIndex = 0;
+
+        // Open modal with specific image
+        function openModal(index) {
+            currentImageIndex = index;
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            modal.classList.add('active');
+            modalImg.src = projects[currentImageIndex].image;
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close modal
+        function closeModal(event) {
+            if (event.target.classList.contains('image-modal') || 
+                event.target.classList.contains('modal-close')) {
+                const modal = document.getElementById('imageModal');
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Change image (next/previous)
+        function changeImage(direction, event) {
+            event.stopPropagation();
+            
+            currentImageIndex += direction;
+            
+            if (currentImageIndex >= projects.length) {
+                currentImageIndex = 0;
+            } else if (currentImageIndex < 0) {
+                currentImageIndex = projects.length - 1;
+            }
+            
+            const modalImg = document.getElementById('modalImage');
+            modalImg.style.opacity = '0';
+            
+            setTimeout(() => {
+                modalImg.src = projects[currentImageIndex].image;
+                modalImg.style.opacity = '1';
+            }, 150);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            const modal = document.getElementById('imageModal');
+            if (modal.classList.contains('active')) {
+                if (event.key === 'ArrowLeft') {
+                    changeImage(-1, event);
+                } else if (event.key === 'ArrowRight') {
+                    changeImage(1, event);
+                } else if (event.key === 'Escape') {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            }
         });
 
-        // Show loading spinner until everything is loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            // Wait for all images to load
-            const images = document.images;
-            const totalImages = images.length;
-            let imagesLoaded = 0;
-            
-            // If there are no images, just remove the spinner
-            if(totalImages === 0) {
+        // Loading spinner
+        window.addEventListener('load', function() {
+            setTimeout(() => {
                 document.body.classList.add('loaded');
-                return;
-            }
-            
-            // Check each image
-            Array.from(images).forEach(img => {
-                if(img.complete) {
-                    imageLoaded();
-                } else {
-                    img.addEventListener('load', imageLoaded);
-                    img.addEventListener('error', imageLoaded); // Even if image fails to load
-                }
-            });
-            
-            function imageLoaded() {
-                imagesLoaded++;
-                if(imagesLoaded === totalImages) {
-                    // Also wait for AOS to initialize
-                    setTimeout(() => {
-                        document.body.classList.add('loaded');
-                    }, 500); // Small delay for smoother transition
-                }
+            }, 500);
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
             }
         });
-        
-        // Fallback - if something goes wrong, remove spinner after 5 seconds
-        setTimeout(() => {
-            document.body.classList.add('loaded');
-        }, 5000);
+
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if (navbarCollapse.classList.contains('show')) {
+                        navbarCollapse.classList.remove('show');
+                    }
+                }
+            });
+        });
     </script>
 </body>
 </html>
